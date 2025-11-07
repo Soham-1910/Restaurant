@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body> <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo-placeholder">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="logo">
+                </a>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <!-- page-specific links -->
+            <li><a href="burger.html">Burger</a></li>
+
+            <div class="cart-icon" id="cartIcon">
+                🛒 <span id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Popup -->
+    <div id="cart-popup" class="cart-container">
+        <span class="close-btn">&times;</span>
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total"></div>
+
+        <button class="checkout-btn">Proceed to Pay</button>
+    </div>
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-box">
+            <span class="close-btn" id="closeCheckout">&times;</span>
+            <h2>Complete Your Payment</h2>
+
+            <label for="paymentSelect">Choose Payment Method:</label>
+            <select id="paymentSelect">
+                <option value="" disabled selected>Select...</option>
+                <option value="upi">UPI</option>
+                <option value="card">Credit/Debit Card</option>
+                <option value="cod">Cash on Delivery</option>
+            </select>
+
+            <!-- Dynamic payment details -->
+            <div id="paymentDetails"></div>
+
+            <button id="confirmPayment" class="checkout-btn">Pay Now</button>
+        </div>
+    </div>
+    <!-- Payment Success Popup -->
+    <div id="paymentSuccess" class="thank-you-popup">
+        <div class="popup-box">
+            <span class="close-btn" id="closePaymentSuccess">&times;</span>
+            <h2>Payment Successful 🎉</h2>
+            <p>Your order has been placed successfully. Thank you for ordering!</p>
+        </div>
+    </div>
+
+    <!-- Veg/Non-Veg Toggle -->
+    <div class="filters">
+        <div class="slider-filter">
+            <span>Veg</span>
+            <label class="switch">
+                <input type="checkbox" id="vegNonVegToggle">
+                <span class="slider"></span>
+            </label>
+            <span>Non-Veg</span>
+        </div>
+    </div>
+
+    <!-- Menu cards (one container for all) -->
+    <div class="menu-container"> <!-- Veg pizzas -->
+        <div class="menu-card" data-type="veg">
+            <div class="item-info">
+                <h3 class="item-name">Veggie Supreme</h3>
+                <p class="reorder">Highly reordered</p>
+                <p class="price"> <span class="old">₹303</span> <span class="offer">Get for ₹151</span> </p>
+                <p class="desc">Crispy veggie pizza with fresh toppings.</p>
+                <p class="note">NOT ELIGIBLE FOR COUPONS</p>
+            </div>
+            <div class="item-image"> <img src="pizza/veg/v1.jpg" alt="Veg Pizza 1"> <button class="add-btn">ADD
+                    <span>+</span></button> </div>
+        </div>
+        <div class="menu-card" data-type="veg">
+            <div class="item-info">
+                <h3 class="item-name">Margherita</h3>
+                <p class="reorder">Highly reordered</p>
+                <p class="price"> <span class="old">₹303</span> <span class="offer">Get for ₹151</span> </p>
+                <p class="desc">Cheesy delight with mixed veggies.</p>
+                <p class="note">NOT ELIGIBLE FOR COUPONS</p>
+            </div>
+            <div class="item-image"> <img src="pizza/veg/v2.jpg" alt="Veg Pizza 2"> <button class="add-btn">ADD
+                    <span>+</span></button> </div>
+        </div>
+        <div class="menu-card" data-type="veg">
+            <div class="item-info">
+                <h3 class="item-name">Veggie Feast</h3>
+                <p class="reorder">Highly reordered</p>
+                <p class="price"> <span class="old">₹303</span> <span class="offer">Get for ₹151</span> </p>
+                <p class="desc">Paneer-topped spicy veg pizza.</p>
+                <p class="note">NOT ELIGIBLE FOR COUPONS</p>
+            </div>
+            <div class="item-image"> <img src="pizza/veg/v3.jpg" alt="Veg Pizza 3"> <button class="add-btn">ADD
+                    <span>+</span></button> </div>
+        </div>
+        <div class="menu-card" data-type="veg">
+            <div class="item-info">
+                <h3 class="item-name">Paneer & Capsicum with Videshi Hot Sauce</h3>
+                <p class="reorder">Highly reordered</p>
+                <p class="price"> <span class="old">₹303</span> <span class="offer">Get for ₹151</span> </p>
+                <p class="desc">Loaded veggie pizza with olives & jalapeños.</p>
+                <p class="note">NOT ELIGIBLE FOR COUPONS</p>
+            </div>
+            <div class="item-image"> <img src="pizza/veg/v4.jpg" alt="Veg Pizza 4"> <button class="add-btn">ADD
+                    <span>+</span></button> </div>
+        </div>
+        <div class="menu-card" data-type="veg">
+            <div class="item-info">
+                <h3 class="item-name">Golden Corn</h3>
+                <p class="reorder">Highly reordered</p>
+                <p class="price"> <span class="old">₹303</span> <span class="offer">Get for ₹151</span> </p>
+                <p class="desc">Crispy thin-crust pizza with capsicum & corn.</p>
+                <p class="note">NOT ELIGIBLE FOR COUPONS</p>
+            </div>
+            <div class="item-image"> <img src="pizza/veg/v5.jpg" alt="Veg Pizza 5"> <button class="add-btn">ADD
+                    <span>+</span></button> </div>
+        </div>
+        <div class="menu-card" data-type="veg">
+            <div class="item-info">
+                <h3 class="item-name">Capsicum & Paprika with Videshi Hot Sauce</h3>
+                <p class="reorder">Highly reordered</p>
+                <p class="price"> <span class="old">₹303</span> <span class="offer">Get for ₹151</span> </p>
+                <p class="desc">Farm fresh pizza with mushrooms.</p>
+                <p class="note">NOT ELIGIBLE FOR COUPONS</p>
+            </div>
+            <div class="item-image"> <img src="pizza/veg/v6.jpg" alt="Veg Pizza 6"> <button class="add-btn">ADD
+                    <span>+</span></button> </div>
+        </div> <!-- Non-veg pizzas -->
+        <div class="menu-card" data-type="non-veg">
+            <div class="item-info">
+                <h3 class="item-name">Royal Spicy Chicken</h3>
+                <p class="reorder">Highly reordered</p>
+                <p class="price"> <span class="old">₹303</span> <span class="offer">Get for ₹151</span> </p>
+                <p class="desc">Chicken-loaded pizza with spicy sauce.</p>
+                <p class="note">NOT ELIGIBLE FOR COUPONS</p>
+            </div>
+            <div class="item-image"> <img src="pizza/non-veg/n1.jpg" alt="Non-Veg Pizza 1"> <button class="add-btn">ADD
+                    <span>+</span></button> </div>
+        </div>
+        <div class="menu-card" data-type="non-veg">
+            <div class="item-info">
+                <h3 class="item-name">Nawabi Murg Makhni</h3>
+                <p class="reorder">Highly reordered</p>
+                <p class="price"> <span class="old">₹303</span> <span class="offer">Get for ₹151</span> </p>
+                <p class="desc">Smoky chicken pizza with onions.</p>
+                <p class="note">NOT ELIGIBLE FOR COUPONS</p>
+            </div>
+            <div class="item-image"> <img src="pizza/non-veg/n2.jpg" alt="Non-Veg Pizza 2"> <button class="add-btn">ADD
+                    <span>+</span></button> </div>
+        </div>
+        <div class="menu-card" data-type="non-veg">
+            <div class="item-info">
+                <h3 class="item-name">Southern Fiery Chicken</h3>
+                <p class="reorder">Highly reordered</p>
+                <p class="price"> <span class="old">₹303</span> <span class="offer">Get for ₹151</span> </p>
+                <p class="desc">Chicken pepperoni classic pizza.</p>
+                <p class="note">NOT ELIGIBLE FOR COUPONS</p>
+            </div>
+            <div class="item-image"> <img src="pizza/non-veg/n3.jpg" alt="Non-Veg Pizza 3"> <button class="add-btn">ADD
+                    <span>+</span></button> </div>
+        </div>
+        <div class="menu-card" data-type="non-veg">
+            <div class="item-info">
+                <h3 class="item-name">Pepper Barbecue Chicken</h3>
+                <p class="reorder">Highly reordered</p>
+                <p class="price"> <span class="old">₹303</span> <span class="offer">Get for ₹151</span> </p>
+                <p class="desc">BBQ chicken loaded pizza.</p>
+                <p class="note">NOT ELIGIBLE FOR COUPONS</p>
+            </div>
+            <div class="item-image"> <img src="pizza/non-veg/n4.jpg" alt="Non-Veg Pizza 4"> <button class="add-btn">ADD
+                    <span>+</span></button> </div>
+        </div>
+        <div class="menu-card" data-type="non-veg">
+            <div class="item-info">
+                <h3 class="item-name">Non-Veg Loaded</h3>
+                <p class="reorder">Highly reordered</p>
+                <p class="price"> <span class="old">₹303</span> <span class="offer">Get for ₹151</span> </p>
+                <p class="desc">Fiery chicken pizza with chili flakes.</p>
+                <p class="note">NOT ELIGIBLE FOR COUPONS</p>
+            </div>
+            <div class="item-image"> <img src="pizza/non-veg/n5.jpg" alt="Non-Veg Pizza 5"> <button class="add-btn">ADD
+                    <span>+</span></button> </div>
+        </div>
+        <div class="menu-card" data-type="non-veg">
+            <div class="item-info">
+                <h3 class="item-name">Chicken Keema & Onion with Desi Makhni Sauce</h3>
+                <p class="reorder">Highly reordered</p>
+                <p class="price"> <span class="old">₹303</span> <span class="offer">Get for ₹151</span> </p>
+                <p class="desc">Grilled chicken supreme pizza.</p>
+                <p class="note">NOT ELIGIBLE FOR COUPONS</p>
+            </div>
+            <div class="item-image"> <img src="pizza/non-veg/n6.jpg" alt="Non-Veg Pizza 6"> <button class="add-btn">ADD
+                    <span>+</span></button> </div>
+        </div>
+    </div>
+
+    <div id="cart-popup" class="cart-container">
+        <span class="close-btn">&times;</span>
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total"></div>
+
+        <div class="payment-methods">
+            <h3>Choose Payment Method</h3>
+            <label><input type="radio" name="payment" value="upi"> UPI</label><br>
+            <label><input type="radio" name="payment" value="card"> Credit/Debit Card</label><br>
+            <label><input type="radio" name="payment" value="cod"> Cash on Delivery</label>
+        </div>
+
+        <button class="checkout-btn">Proceed to Pay</button>
+    </div>
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

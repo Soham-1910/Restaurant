@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo-placeholder">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="logo">
+                </a>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <!-- page-specific links -->
+            <li><a href="pizza.html">Pizza</a></li>
+
+            <div class="cart-icon" id="cartIcon">
+                🛒 <span id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Popup -->
+    <div id="cart-popup" class="cart-container">
+        <span class="close-btn">&times;</span>
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total"></div>
+        <button class="checkout-btn">Proceed to Pay</button>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-box">
+            <span class="close-btn" id="closeCheckout">&times;</span>
+            <h2>Complete Your Payment</h2>
+
+            <label for="paymentSelect">Choose Payment Method:</label>
+            <select id="paymentSelect">
+                <option value="" disabled selected>Select...</option>
+                <option value="upi">UPI</option>
+                <option value="card">Credit/Debit Card</option>
+                <option value="cod">Cash on Delivery</option>
+            </select>
+
+            <!-- Dynamic payment details -->
+            <div id="paymentDetails"></div>
+
+            <button id="confirmPayment" class="checkout-btn">Pay Now</button>
+        </div>
+    </div>
+    <!-- Payment Success Popup -->
+    <div id="paymentSuccess" class="thank-you-popup">
+        <div class="popup-box">
+            <span class="close-btn" id="closePaymentSuccess">&times;</span>
+            <h2>Payment Successful 🎉</h2>
+            <p>Your order has been placed successfully. Thank you for ordering!</p>
+        </div>
+    </div>
+    <!-- Veg/Non-Veg Toggle -->
+    <div class="filters">
+        <div class="slider-filter">
+            <span>Veg</span>
+            <label class="switch">
+                <input type="checkbox" id="vegNonVegToggle">
+                <span class="slider"></span>
+            </label>
+            <span>Non-Veg</span>
+        </div>
+    </div>
+
+    <!-- Burger Cards -->
+    <div class="menu-container">
+
+        <!-- Non-Veg Burgers -->
+        <div class="menu-card" data-type="non-veg">
+            <div class="item-info">
+                <h3 class="item-name">Chicken Burger</h3>
+                <!-- <p class="reorder">Highly reordered</p> -->
+                <p class="price">
+                    <!-- <span class="old">₹180</span> -->
+                    <span class="offer">Get for ₹100</span>
+                </p>
+                <p class="desc">A simple classic with tender chicken patty, fresh lettuce, and creamy mayo.</p>
+                <!-- <p class="note">NOT ELIGIBLE FOR COUPONS</p> -->
+            </div>
+            <div class="item-image">
+                <img src="burger/non-veg/n1.png" alt="Chicken Burger 1">
+                <button class="add-btn">ADD <span>+</span></button>
+            </div>
+        </div>
+
+        <div class="menu-card" data-type="non-veg">
+            <div class="item-info">
+                <h3 class="item-name">Korean Spicy Chicken Burger</h3>
+                <!-- <p class="reorder">Highly reordered</p> -->
+                <p class="price">
+                    <!-- <span class="old">₹303</span> -->
+                    <span class="offer">Get for ₹151</span>
+                </p>
+                <p class="desc">Crispy chicken coated in bold Korean spices with a fiery kick.</p>
+                <!-- <p class="note">NOT ELIGIBLE FOR COUPONS</p> -->
+            </div>
+            <div class="item-image">
+                <img src="burger/non-veg/n2.png" alt="Chicken Burger 2">
+                <button class="add-btn">ADD <span>+</span></button>
+            </div>
+        </div>
+
+        <div class="menu-card" data-type="non-veg">
+            <div class="item-info">
+                <h3 class="item-name">Flame Grill Chicken Whopper Deluxe</h3>
+                <!-- <p class="reorder">Highly reordered</p> -->
+                <p class="price">
+                    <!-- <span class="old">₹303</span> -->
+                    <span class="offer">Get for ₹151</span>
+                </p>
+                <p class="desc">Juicy flame-grilled chicken with cheese, veggies, and deluxe toppings.</p>
+                <!-- <p class="note">NOT ELIGIBLE FOR COUPONS</p> -->
+            </div>
+            <div class="item-image">
+                <img src="burger/non-veg/n3.png" alt="Chicken Burger 3">
+                <button class="add-btn">ADD <span>+</span></button>
+            </div>
+        </div>
+
+        <div class="menu-card" data-type="non-veg">
+            <div class="item-info">
+                <h3 class="item-name">McSpicy Chicken Burger</h3>
+                <!-- <p class="reorder">Highly reordered</p> -->
+                <p class="price">
+                    <!-- <span class="old">₹303</span> -->
+                    <span class="offer">Get for ₹151</span>
+                </p>
+                <p class="desc">Crunchy chicken fillet seasoned with hot spices for extra heat.</p>
+                <!-- <p class="note">NOT ELIGIBLE FOR COUPONS</p> -->
+            </div>
+            <div class="item-image">
+                <img src="burger/non-veg/n4.png" alt="Chicken Burger 1">
+                <button class="add-btn">ADD <span>+</span></button>
+            </div>
+        </div>
+
+        <div class="menu-card" data-type="non-veg">
+            <div class="item-info">
+                <h3 class="item-name">McCrispy Chicken Burger</h3>
+                <!-- <p class="reorder">Highly reordered</p> -->
+                <p class="price">
+                    <!-- <span class="old">₹303</span> -->
+                    <span class="offer">Get for ₹151</span>
+                </p>
+                <p class="desc">Crispy golden chicken patty paired with lettuce and zesty sauce.</p>
+                <!-- <p class="note">NOT ELIGIBLE FOR COUPONS</p> -->
+            </div>
+            <div class="item-image">
+                <img src="burger/non-veg/n5.png" alt="Chicken Burger 1">
+                <button class="add-btn">ADD <span>+</span></button>
+            </div>
+        </div>
+
+        <div class="menu-card" data-type="non-veg">
+            <div class="item-info">
+                <h3 class="item-name">McChicken Burger</h3>
+                <!-- <p class="reorder">Highly reordered</p> -->
+                <p class="price">
+                    <!-- <span class="old">₹303</span> -->
+                    <span class="offer">Get for ₹151</span>
+                </p>
+                <p class="desc">A timeless favorite with a tender chicken patty and classic mayo-lettuce combo.</p>
+                <!-- <p class="note">NOT ELIGIBLE FOR COUPONS</p> -->
+            </div>
+            <div class="item-image">
+                <img src="burger/non-veg/n6.png" alt="Chicken Burger 1">
+                <button class="add-btn">ADD <span>+</span></button>
+            </div>
+        </div>
+
+        <!-- Veg Burgers -->
+        <div class="menu-card" data-type="veg">
+            <div class="item-info">
+                <h3 class="item-name">Hot 'N' Chessy Burger</h3>
+                <!-- <p class="reorder">Highly reordered</p> -->
+                <p class="price">
+                    <!-- <span class="old">₹303</span> -->
+                    <span class="offer">Get for ₹151</span>
+                </p>
+                <p class="desc">A crispy patty loaded with molten cheese and bold flavors in every bite.</p>
+                <!-- <p class="note">NOT ELIGIBLE FOR COUPONS</p> -->
+            </div>
+            <div class="item-image">
+                <img src="burger/veg/v1.jpeg" alt="Veg Burger 1">
+                <button class="add-btn">ADD <span>+</span></button>
+            </div>
+        </div>
+
+        <div class="menu-card" data-type="veg">
+            <div class="item-info">
+                <h3 class="item-name">Paneer Royale Burger</h3>
+                <!-- <p class="reorder">Highly reordered</p> -->
+                <p class="price">
+                    <!-- <span class="old">₹303</span> -->
+                    <span class="offer">Get for ₹151</span>
+                </p>
+                <p class="desc">A rich paneer patty paired with creamy sauce and fresh crunchy veggies.</p>
+                <!-- <p class="note">NOT ELIGIBLE FOR COUPONS</p> -->
+            </div>
+            <div class="item-image">
+                <img src="burger/veg/v2.jpeg" alt="Veg Burger 2">
+                <button class="add-btn">ADD <span>+</span></button>
+            </div>
+        </div>
+
+        <div class="menu-card" data-type="veg">
+            <div class="item-info">
+                <h3 class="item-name">Korean Spicy Paneer Burger</h3>
+                <!-- <p class="reorder">Highly reordered</p> -->
+                <p class="price">
+                    <!-- <span class="old">₹303</span> -->
+                    <span class="offer">Get for ₹151</span>
+                </p>
+                <p class="desc">Spicy Korean flavors meet a crispy paneer patty for a fiery delight.</p>
+                <!-- <p class="note">NOT ELIGIBLE FOR COUPONS</p> -->
+            </div>
+            <div class="item-image">
+                <img src="burger/veg/v3.jpeg" alt="Veg Burger 3">
+                <button class="add-btn">ADD <span>+</span></button>
+            </div>
+        </div>
+
+        <div class="menu-card" data-type="veg">
+            <div class="item-info">
+                <h3 class="item-name">McAloo Tikki</h3>
+                <!-- <p class="reorder">Highly reordered</p> -->
+                <p class="price">
+                    <!-- <span class="old">₹303</span> -->
+                    <span class="offer">Get for ₹151</span>
+                </p>
+                <p class="desc">The iconic potato and pea patty seasoned with Indian spices in a soft bun.</p>
+                <!-- <p class="note">NOT ELIGIBLE FOR COUPONS</p> -->
+            </div>
+            <div class="item-image">
+                <img src="burger\veg\v4.png" alt="Veg Burger 3">
+                <button class="add-btn">ADD <span>+</span></button>
+            </div>
+        </div>
+
+        <div class="menu-card" data-type="veg">
+            <div class="item-info">
+                <h3 class="item-name">Original Whopper Veg</h3>
+                <!-- <p class="reorder">Highly reordered</p> -->
+                <p class="price">
+                    <!-- <span class="old">₹303</span> -->
+                    <span class="offer">Get for ₹151</span>
+                </p>
+                <p class="desc">A flame-grilled veg patty stacked with fresh veggies and signature Whopper taste.</p>
+                <!-- <p class="note">NOT ELIGIBLE FOR COUPONS</p> -->
+            </div>
+            <div class="item-image">
+                <img src="burger\veg\v5.png" alt="Veg Burger 3">
+                <button class="add-btn">ADD <span>+</span></button>
+            </div>
+        </div>
+
+        <div class="menu-card" data-type="veg">
+            <div class="item-info">
+                <h3 class="item-name">Crispy Veg Burger</h3>
+                <!-- <p class="reorder">Highly reordered</p> -->
+                <p class="price">
+                    <!-- <span class="old">₹303</span> -->
+                    <span class="offer">Get for ₹151</span>
+                </p>
+                <p class="desc">A golden-fried vegetable patty with lettuce and tangy mayo for a crunchy classic.</p>
+                <!-- <p class="note">NOT ELIGIBLE FOR COUPONS</p> -->
+            </div>
+            <div class="item-image">
+                <img src="burger\veg\v6.png" alt="Veg Burger 3">
+                <button class="add-btn">ADD <span>+</span></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="cart-popup" class="cart-container">
+        <span class="close-btn">&times;</span>
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total"></div>
+
+        <div class="payment-methods">
+            <h3>Choose Payment Method</h3>
+            <label><input type="radio" name="payment" value="upi"> UPI</label><br>
+            <label><input type="radio" name="payment" value="card"> Credit/Debit Card</label><br>
+            <label><input type="radio" name="payment" value="cod"> Cash on Delivery</label>
+        </div>
+
+        <button class="checkout-btn">Proceed to Pay</button>
+    </div>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

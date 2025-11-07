@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <!-- Left: Logo -->
+    <div class="nav-left">
+      <div class="logo-placeholder">
+        <a href="index.html">
+          <img src="img/logo.png" alt="logo">
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Contact + Cart -->
+    <div class="nav-right">
+      <a href="#" id="openFormLink">Contact</a>
+      <div class="cart-icon" id="cartIcon">
+        🛒 <span id="cart-count">0</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cart Popup -->
+  <div id="cart-popup" class="cart-container">
+    <span class="close-btn">&times;</span>
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div id="cart-total"></div>
+
+    <button class="checkout-btn">Proceed to Pay</button>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="checkout-modal">
+    <div class="checkout-box">
+      <span class="close-btn" id="closeCheckout">&times;</span>
+      <h2>Complete Your Payment</h2>
+
+      <label for="paymentSelect">Choose Payment Method:</label>
+      <select id="paymentSelect">
+        <option value="" disabled selected>Select...</option>
+        <option value="upi">UPI</option>
+        <option value="card">Credit/Debit Card</option>
+        <option value="cod">Cash on Delivery</option>
+      </select>
+
+      <!-- Dynamic payment details -->
+      <div id="paymentDetails"></div>
+
+      <button id="confirmPayment" class="checkout-btn">Pay Now</button>
+    </div>
+  </div>
+  <!-- Payment Success Popup -->
+  <div id="paymentSuccess" class="thank-you-popup">
+    <div class="popup-box">
+      <span class="close-btn" id="closePaymentSuccess">&times;</span>
+      <h2>Payment Successful 🎉</h2>
+      <p>Your order has been placed successfully. Thank you for ordering!</p>
+    </div>
+  </div>
+
+
+  <section class="main">
+    <figure class="food-choice" data-name="Burger" data-price="150"> <img src="img/burger.png" alt="Burger"
+        class="food-img"> <!-- <figcaption>Burger</figcaption> --> </figure>
+    <figure class="food-choice" data-name="Pizza" data-price="250"> <img src="img/pizza.png" alt="Pizza"
+        class="food-img"> <!-- <figcaption>Pizza</figcaption> --> </figure>
+  </section>
+
+
+  <!-- POPUP FORM (Let’s do this) -->
+  <div class="popup-form" id="popupForm">
+    <div class="form-content">
+      <span class="close-btn" id="closeForm">&times;</span>
+      <h2>Leave us a FeedBack </h2>
+      <form action="https://formsubmit.co/1719a02085caa37e6c64c778ae7277e2" method="POST" id="projectForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Contact Number" required>
+        <textarea name="message" placeholder="Project Details" rows="4" required></textarea>
+
+        <!-- Required FormSubmit Hidden Fields -->
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="New Project Request">
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- THANK YOU POPUP -->
+  <div class="thank-you-popup" id="thankYouPopup">
+    <div class="popup-box">
+      <span class="close-btn" id="closeThankYou">&times;</span>
+      <h2>Thank You!</h2>
+      <p>Your message has been sent successfully. We'll get back to you soon.</p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
